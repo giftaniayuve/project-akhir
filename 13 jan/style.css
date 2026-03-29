@@ -1,0 +1,68 @@
+*{
+    background-color: rgb(199, 199, 121);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container{
+    background-color: rgb(233, 240, 176);
+    width: 30%;
+    height: 75vh;
+    margin-left: 450px;
+    margin-top: 70px;
+    border-radius: 10px;
+}
+
+h2{
+    color: rgb(246, 246, 216);
+    text-align: center;
+    background-color: rgb(230, 216, 62);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.a{
+    text-align: center;
+    width: 30%;
+    height: 10vh;
+}
+
+button{
+    margin-left: 130px;
+    width: 30%;
+    height: 5vh;
+    color: yellow;
+    background-color: rgb(202, 202, 5);  background-color: rgb(199, 199, 121);    border-radius: 8px;
+    margin-top: 20px;
+}
+
+
+#output{
+          background-color: rgb(233, 240, 176);
+   color: rgb(124, 124, 106); 
+   border-radius: 20px;
+}
+
+h3{
+     background-color: rgb(233, 240, 176);
+}
+
+#numberInput{
+    border-radius: 10px;
+    height: 5vh;
+    justify-content: center;
+    align-items: center;
+    margin-left: 99px;
+    margin-top: 1%;
+    text-align: center;
+}
+
+@media (max-width: 375px) {
+    body{
+        padding : 10%
+    }
+
+    .container{
+        padding: 10%;
+        height: ;
+        }
+}

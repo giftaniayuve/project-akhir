@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20-10-</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="con">
+    <div class="name">
+    <h2>quiz coding javascript</h2>
+    </div>
+    <div class="container1">
+    <div class="container2">
+            <div class="a">
+     <p>soal 1 : apa fungsi document.getElementById ?</p>
+    <span><input type="radio" name="soal1" value="a">a.untuk memanggil class</span><br>
+    <span><input type="radio" name="soal1" value="b">b.untuk memanggil id</span><br>
+    <span><input type="radio" name="soal1" value="c">c.untuk mendeklarasikan variabel</span><br>
+    <span><input type="radio" name="soal1" value="d">d. untuk menetukan tag</span><br>
+    </div>
+
+
+    <div class="b">
+       <p>soal 2 : apa fungsi document.getElementByClass ?</p>
+    <span><input type="radio" name="soal2" value="a">a.untuk memanggil class</span><br>
+    <span><input type="radio" name="soal2" value="b">b.untuk memanggil id</span><br>
+    <span><input type="radio" name="soal2" value="c">c.untuk mendeklarasikan variabel</span><br>
+    <span><input type="radio" name="soal2" value="d">d. untuk menetukan tag</span><br>
+    </div>
+
+
+
+    <div class="c">
+       <p>soal 3 : apa itu undefined ?</p>
+    <span><input type="radio" name="soal3" value="a">a.0</span><br>
+    <span><input type="radio" name="soal3" value="b">b.var</span><br>
+    <span><input type="radio" name="soal3" value="c">c.const</span><br>
+    <span><input type="radio" name="soal3" value="d">d.tidak terdefinisi</span><br>
+        </div>
+
+
+    <div class="d">
+        <p>soal 4 : Apa fungsi yang digunakan untuk memanggil id dari html?</p>
+    <span><input type="radio" name="soal4" value="a">a.document.getElementbyId</span><br>
+    <span><input type="radio" name="soal4" value="b">b.document.getElementbyClass</span><br>
+    <span><input type="radio" name="soal4" value="c">c.document.getElementbyName</span><br>
+    <span><input type="radio" name="soal4" value="d">d.document.getElementbyTag</span> <br>
+</div>
+
+    <div class="e">
+    <p>soal 5 : apa fungsi document.getElementByTag ?</p>
+    <span><input type="radio" name="soal5" value="a">a.untuk memanggil class</span><br>
+    <span><input type="radio" name="soal5" value="b">b.untuk memanggil id</span><br>
+    <span><input type="radio" name="soal5" value="c">c.untuk mendeklarasikan variabel</span><br>
+    <span><input type="radio" name="soal5" value="d">d. untuk menetukan tag</span><br>
+</div>
+
+    <div class="f">
+    <p>soal 6 : contoh mendeklarasikan variabel yang salah, kecuali ?</p>
+     <span><input type="radio" name="soal6" value="a">a.let</span><br>
+    <span><input type="radio" name="soal6" value="b">b.var</span><br>
+    <span><input type="radio" name="soal6" value="c">c.const</span><br>
+    <span><input type="radio" name="soal6" value="d">d.consts</span><br>
+</div>
+
+    <div class="g">
+      <p>soal 7 : contoh variabel yang tidak dapat diubah ?</p>
+     <span><input type="radio" name="soal7" value="a">a.let</span><br>
+    <span><input type="radio" name="soal7" value="b">b.var</span><br>
+    <span><input type="radio" name="soal7" value="c">c.const</span><br>
+    <span><input type="radio" name="soal7" value="d">d.consts</span><br>
+</div>
+
+    <div class="h">
+      <p>soal 8 : apa fungsi yang digunakan untuk keadaan jika-kalau ?</p>
+     <span><input type="radio" name="soal8" value="a">a.if else</span><br>
+    <span><input type="radio" name="soal8" value="b">b.let</span><br>
+    <span><input type="radio" name="soal8" value="c">c.const</span><br>
+    <span><input type="radio" name="soal8" value="d">d.consts</span><br>
+</div>
+
+
+    <div class="i">
+      <p>soal 9 : apa fungsi for ?</p>
+     <span><input type="radio" name="soal9" value="a">a.perulangan</span><br>
+    <span><input type="radio" name="soal9" value="b">b.kebutuhan</span><br>
+    <span><input type="radio" name="soal9" value="c">c.pilihan</span><br>
+    <span><input type="radio" name="soal9" value="d">d.keuntungan</span><br>
+</div>
+
+    <div class="j">
+      <p>soal 10 : apa fungsi addEventListener ?</p>
+     <span><input type="radio" name="soal10" value="a">a.memasukan tanda diperbarui</span><br>
+    <span><input type="radio" name="soal10" value="b">b.memasukan event click</span><br>
+    <span><input type="radio" name="soal10" value="c">c.memasukan text</span><br>
+    <span><input type="radio" name="soal10" value="d">d.memasukan angka</span><br>
+    </div>
+</div>
+<div class="container3">
+    <p>nilai anda</p>
+    <span id="hasil"></span>
+    <button onclick="cekjawaban()">selesai </button>
+    
+    </div>
+</div>
+    
+    </div>
+    
+
+    <script>
+        const semuaRadio = document.querySelectorAll('input[type="radio"]');
+        semuaRadio.forEach(radio =>{
+            radio.addEventListener('change', function(){
+                const namaSoal = this.name;
+                const radioSatuSoal = document.querySelectorAll(`input[name="$(namasoal)"]`);
+
+                radioSatuSoal.forEach(r =>{
+                    r.disabled = true;
+                    r.parentElement.classList.add("terkunci");
+                })
+            })
+        })
+        function cekjawaban(){
+            let skor = 0;
+
+            const kunci = {
+                soal1 : "b",
+                soal2 : "a",
+                soal3 : "d",
+                soal4 : "a",
+                soal5 : "d",
+                soal6 : "d",
+                soal7 : "c",
+                soal8 : "a",
+                soal9 : "a",
+                soal10 : "b",
+
+            };
+
+            for(let nomor in kunci){
+                let jawaban = document.querySelector(`input[name="${nomor}"]:checked`)
+                if(jawaban && jawaban.value === kunci[nomor]){
+                    skor += 10;
+            }
+            }
+            document.getElementById('hasil').innerHTML = skor;
+        }
+        
+    </script>
+ </body>
+</html>

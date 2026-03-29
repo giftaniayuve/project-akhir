@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scroll animasi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>scroll untuk melihat animasi</h1>
+    <div class="box"><h2>semangat</h2></div>
+    <div class="box"><h2>you can do it</h2></div>
+    <div class="box"><h2>yay</h2></div>
+    <div class="box"><h2>50 tahun</h2></div>
+    <div class="box"><h2>50 ribu</h2></div>
+    <div class="box"><h2>hello</h2></div>
+    <div class="box"><h2>always senyum</h2></div>
+    <div class="box"><h2>ketawa</h2></div>
+    <div class="box"><h2>lucu</h2></div>
+    <div class="box"><h2>eh</h2></div>
+    <div class="box"><h2>gimana si</h2></div>
+    <div class="box"><h2>hah</h2></div>
+    <div class="box"><h2>ngantuk</h2></div>
+    <div class="box"><h2>lapar</h2></div>
+    <div class="box"><h2>gatau lagi</h2></div>
+  <script>
+    const boxes = document.querySelectorAll('.box');
+    window.addEventListener('scroll',checkBoxes);
+
+    checkBoxes()
+
+    function checkBoxes(){
+        const triggerButton = window.innerHeight / 5 * 4
+
+
+    boxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top
+
+        if(boxTop < triggerButton){
+            box.classList.add('show')
+        }else{
+            box.classList.remove('show')
+        }
+    })
+    }
+</script>
+
+
+
+
+
+</body>
+</html>

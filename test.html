@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Personal Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0e0e0f;
+    --card: #16161a;
+    --card-border: #2a2a35;
+    --accent: #c9a84c;
+    --accent-light: #e4c76b;
+    --text: #e8e4dc;
+    --text-muted: #8a8780;
+    --text-dim: #5a5856;
+    --radius: 16px;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── Ambient BG ── */
+  .ambient {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  }
+  .ambient::before {
+    content:''; position:absolute;
+    top:-20%; left:-10%; width:60%; height:60%;
+    background: radial-gradient(ellipse, rgba(201,168,76,.12) 0%, transparent 70%);
+    filter: blur(60px);
+  }
+  .ambient::after {
+    content:''; position:absolute;
+    bottom:-15%; right:-5%; width:50%; height:50%;
+    background: radial-gradient(ellipse, rgba(100,120,180,.08) 0%, transparent 70%);
+    filter: blur(80px);
+  }
+
+  /* ── Layout ── */
+  .page-wrap { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  /* ── Laptop Frame ── */
+  .laptop-frame {
+    background: #1a1a1e;
+    border-radius: 24px 24px 0 0;
+    border: 2px solid var(--card-border);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset, 0 24px 80px rgba(0,0,0,.5);
+    overflow: hidden;
+  }
+
+  .laptop-topbar {
+    background: linear-gradient(180deg, #222228 0%, #1c1c21 100%);
+    padding: 11px 18px;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .dot {
+    width:13px; height:13px; border-radius:50%;
+    background: #ff5f57; box-shadow: inset 0 1px 0 rgba(255,255,255,.2);
+  }
+  .dot:nth-child(2) { background:#ffbd2e; }
+  .dot:nth-child(3) { background:#28c840; }
+
+  .laptop-screen {
+    padding: 48px 44px 56px;
+    background: var(--bg);
+  }
+
+  /* ── Laptop Stand ── */
+  .laptop-stand-wrap { display:flex; justify-content:center; }
+  .laptop-stand {
+    width: 240px; height: 28px;
+    background: linear-gradient(180deg, #2a2a30 0%, #1e1e22 100%);
+    clip-path: polygon(20% 0%, 80% 0%, 90% 100%, 10% 100%);
+  }
+  .laptop-base {
+    width: 380px; height: 10px;
+    background: linear-gradient(180deg, #222228 0%, #1a1a1e 100%);
+    border-radius: 0 0 8px 8px;
+    margin: 0 auto;
+  }
+
+  /* ── Hero ── */
+  .hero { text-align:center; padding: 32px 0 48px; position:relative; }
+  .hero-avatar {
+    width:100px; height:100px; border-radius:50%;
+    border: 3px solid var(--accent);
+    background: linear-gradient(135deg, #2a2a35, #1e1e22);
+    margin: 0 auto 24px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:38px; color: var(--accent);
+    box-shadow: 0 0 32px rgba(201,168,76,.15);
+    position:relative; overflow:hidden;
+  }
+  .hero-avatar .avatar-initials { position:relative; z-index:1; }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem; font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--text) 30%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+  .hero .tagline {
+    color: var(--text-muted); font-size: 1.05rem; font-weight: 300;
+    max-width: 480px; margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ── Editable Tag ── */
+  .editable-hint {
+    position:absolute; top:4px; right:0;
+    font-size:10px; color:var(--text-dim); letter-spacing:1.5px; text-transform:uppercase;
+    opacity:.7;
+  }
+
+  /* ── Section Label ── */
+  .section-label {
+    display:flex; align-items:center; gap:12px;
+    margin-bottom: 20px;
+  }
+  .section-label .line {
+    flex:1; height:1px; background: linear-gradient(90deg, var(--card-border), transparent);
+  }
+  .section-label span {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem; font-weight: 600;
+    color: var(--accent); letter-spacing: 2px; text-transform:uppercase;
+  }
+  .section-label .line:first-child { background: linear-gradient(270deg, var(--card-border), transparent); }
+
+  /* ── Cards Grid ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 40px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    position:relative;
+    transition: border-color .3s, box-shadow .3s, transform .2s;
+    cursor: default;
+  }
+  .card:hover {
+    border-color: rgba(201,168,76,.35);
+    box-shadow: 0 8px 40px rgba(0,0,0,.35), 0 0 0 1px rgba(201,168,76,.1);
+    transform: translateY(-2px);
+  }
+
+  .card-icon {
+    width:40px; height:40px; border-radius:10px;
+    background: linear-gradient(135deg, rgba(201,168,76,.15), rgba(201,168,76,.05));
+    border: 1px solid rgba(201,168,76,.2);
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; margin-bottom:16px;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ── Single wide card ── */
+  .card-wide { grid-column: 1 / -1; }
+
+  /* ── Skills Row ── */
+  .skills-row {
+    display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;
+  }
+  .skill-tag {
+    background: rgba(201,168,76,.08);
+    border: 1px solid rgba(201,168,76,.2);
+    color: var(--accent-light);
+    font-size: 0.78rem; padding: 5px 12px;
+    border-radius: 20px; font-weight: 400;
+    letter-spacing: .3px;
+  }
+
+  /* ── Contact Strip ── */
+  .contact-strip {
+    display:flex; justify-content:center; gap:28px;
+    flex-wrap:wrap;
+    margin-top: 8px;
+  }
+  .contact-item {
+    display:flex; align-items:center; gap:8px;
+    color: var(--text-muted); font-size:0.88rem; font-weight:300;
+    text-decoration:none;
+    transition: color .25s;
+  }
+  .contact-item:hover { color: var(--accent-light); }
+  .contact-item .ci-icon { font-size:15px; }
+
+  /* ── Editable styles ── */
+  [contenteditable="true"]:focus {
+    outline:none;
+    border-color: rgba(201,168,76,.5) !important;
+    box-shadow: 0 0 0 2px rgba(201,168,76,.08) !important;
+  }
+  [contenteditable="true"]:hover {
+    background: rgba(201,168,76,.025);
+    border-radius: 4px;
+  }
+
+  /* ── Divider ── */
+  .divider { height:1px; background: linear-gradient(90deg, transparent, var(--card-border), transparent); margin: 8px 0 32px; }
+
+  /* ── Footer ── */
+  .footer-note {
+    text-align:center; color:var(--text-dim); font-size:0.78rem; margin-top:24px;
+    letter-spacing:.5px;
+  }
+
+  /* ── Animations ── */
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(24px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .anim { opacity:0; animation: fadeUp .6s cubic-bezier(.22,1,.36,1) forwards; }
+  .anim:nth-child(1) { animation-delay:.05s; }
+  .anim:nth-child(2) { animation-delay:.12s; }
+  .anim:nth-child(3) { animation-delay:.19s; }
+  .anim:nth-child(4) { animation-delay:.26s; }
+  .anim:nth-child(5) { animation-delay:.33s; }
+  .anim:nth-child(6) { animation-delay:.40s; }
+
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    .page-wrap { padding: 16px 10px 60px; }
+    .laptop-screen { padding: 28px 18px 36px; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.9rem; }
+    .laptop-stand { width:150px; }
+    .laptop-base { width:240px; }
+    .contact-strip { gap:16px; }
+  }
+  @media (max-width: 420px) {
+    .laptop-screen { padding: 20px 14px 28px; }
+    .hero h1 { font-size: 1.6rem; }
+    .card { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ambient"></div>
+
+<div class="page-wrap">
+
+  <!-- Laptop Frame -->
+  <div class="laptop-frame">
+
+    <!-- Top Bar (macOS style) -->
+    <div class="laptop-topbar">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+
+    <!-- Screen Content -->
+    <div class="laptop-screen">
+
+      <!-- Hero -->
+      <div class="hero anim">
+        <div class="hero-avatar"><span class="avatar-initials">AN</span></div>
+        <h1 contenteditable="true">Ahmad Nugroho</h1>
+        <p class="tagline" contenteditable="true">Full-Stack Developer & Creative Designer.<br/>Crafting elegant digital experiences from Jakarta, Indonesia.</p>
+      </div>
+
+      <!-- Contact -->
+      <div class="contact-strip anim" style="margin-bottom:36px;">
+        <span class="contact-item"><span class="ci-icon">✉</span><span contenteditable="true">ahmad@email.com</span></span>
+        <span class="contact-item"><span class="ci-icon">☎</span><span contenteditable="true">+62 812-3456-7890</span></span>
+        <span class="contact-item"><span class="ci-icon">🌐</span><span contenteditable="true">ahmad.dev</span></span>
+      </div>
+
+      <!-- About -->
+      <div class="section-label anim">
+        <div class="line"></div><span>About</span><div class="line"></div>
+      </div>
+      <div class="card card-wide anim" style="margin-bottom:40px;">
+        <p contenteditable="true" style="font-size:.95rem; line-height:1.8;">
+          I am a passionate developer with over 5 years of experience building modern web applications. I specialize in creating clean, intuitive interfaces paired with robust backend systems. My approach blends technical precision with thoughtful design — turning ideas into products that users love. When I'm not coding, I enjoy exploring new technologies and contributing to open-source communities.
+        </p>
+      </div>
+
+      <!-- Skills & Projects -->
+      <div class="section-label anim">
+        <div class="line"></div><span>Skills & Projects</span><div class="line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <div class="card anim">
+          <div class="card-icon">💻</div>
+          <h3 contenteditable="true">Technical Skills</h3>
+          <div class="skills-row">
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Figma</span>
+          </div>
+        </div>
+
+        <div class="card anim">
+          <div class="card-icon">🎨</div>
+          <h3 contenteditable="true">Design Philosophy</h3>
+          <p contenteditable="true">Minimalism meets functionality. I believe great design is invisible — users should flow through interfaces effortlessly, guided by clarity and purpose.</p>
+        </div>
+
+        <div class="card anim">
+          <div class="card-icon">🚀</div>
+          <h3 contenteditable="true">Project Alpha</h3>
+          <p contenteditable="true">An e-commerce platform serving 10,000+ users. Built with React & Node.js, featuring real-time inventory management and Stripe payment integration.</p>
+        </div>
+
+        <div class="card anim">
+          <div class="card-icon">📱</div>
+          <h3 contenteditable="true">Mobile App</h3>
+          <p contenteditable="true">A fitness tracking app with AI-powered recommendations. Cross-platform with React Native, syncing seamlessly across iOS and Android devices.</p>
+        </div>
+      </div>
+
+      <!-- Experience -->
+      <div class="section-label anim">
+        <div class="line"></div><span>Experience</span><div class="line"></div>
+      </div>
+      <div class="cards-grid">
+
+        <div class="card anim">
+          <div class="card-icon">🏢</div>
+          <h3 contenteditable="true">Senior Developer</h3>
+          <p contenteditable="true" style="margin-bottom:10px;">PT Teknologi Maju — 2022 – Present</p>
+          <p contenteditable="true">Led a team of 4 developers. Architected microservices infrastructure reducing system downtime by 60%. Mentored junior engineers on best practices.</p>
+        </div>
+
+        <div class="card anim">
+          <div class="card-icon">📂</div>
+          <h3 contenteditable="true">Junior Developer</h3>
+          <p contenteditable="true" style="margin-bottom:10px;">Startup Inovasi — 2019 – 2022</p>
+          <p contenteditable="true">Developed customer-facing features using Vue.js and Laravel. Collaborated closely with designers to deliver pixel-perfect UI components.</p>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="section-label anim">
+        <div class="line"></div><span>Education</span><div class="line"></div>
+      </div>
+      <div class="card card-wide anim" style="margin-bottom:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px;">
+          <div>
+            <h3 contenteditable="true">Bachelor of Computer Science</h3>
+            <p contenteditable="true" style="color:var(--accent); font-size:.88rem; margin-top:4px;">Universitas Indonesia</p>
+          </div>
+          <span contenteditable="true" style="color:var(--text-dim); font-size:.82rem; white-space:nowrap;">2015 – 2019</span>
+        </div>
+        <p contenteditable="true" style="margin-top:12px;">GPA 3.7/4.0. Focused on software engineering and human-computer interaction. Thesis on adaptive UI systems using machine learning.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Footer -->
+      <p class="footer-note">✏️ &nbsp;Semua teks dapat diedit — klik langsung pada konten untuk mengubahnya</p>
+    </div>
+  </div>
+
+  <!-- Stand -->
+  <div class="laptop-stand-wrap">
+    <div class="laptop-stand"></div>
+  </div>
+  <div class="laptop-base"></div>
+</div>
+
+</body>
+</html>

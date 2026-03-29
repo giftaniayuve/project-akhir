@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.ye{
+    background-color: rgb(0, 25, 108);
+    width: 50%;
+    height: 80vh;
+    margin-left: 340px;
+    margin-top: 50px;
+    text-align:  center;
+    font-size: 1.4rem;
+    padding-top: 20px;
+    border-radius: 10px;
+    color: rgb(139, 240, 255);
+    
+}
+
+.res button{
+  background-color: rgb(195, 195, 255);
+    width: 10%;
+    height: 5vh;
+    border-radius: 10px;
+    color: rgb(29, 29, 46);
+}
+
+
+
+.h1{
+    margin-left: 20px;
+}
+
+.y input{
+    color: rgb(55, 103, 123);
+}
+
+.x label{
+    width: 10px;
+}
+
+.bu button{
+    color: rgb(29, 29, 46);
+    background-color: rgb(195, 195, 255);
+}
+
+.l label{
+    background-color: blue;
+}
+
+.P{
+    margin-top: 10px;
+}
+
+@media(max-width:667px){
+    .ye{
+        width: 95%;
+        height: 90vh;
+    }
+
+    .res button{
+        width: 20%;
+}
+
+}

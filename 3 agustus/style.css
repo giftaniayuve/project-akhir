@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+h1{
+    background-color: bisque;
+    color: rgb(237, 162, 70);
+}
+
+
+
+.container {
+    background-color: rgb(226, 186, 175);
+    width: 250PX;
+    width: 300px;
+    margin-top: 80px;
+    margin-left: 480px;
+    text-align: center;
+}

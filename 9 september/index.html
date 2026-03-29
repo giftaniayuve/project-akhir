@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="utama">
+        <div class="navbar">
+            <div class="bks-nav">
+                <h3>Theather</h3>
+                <h4>Tv Store</h4>
+                <h4>Movies</h4>
+                <h4>Viewers</h4>
+            </div>
+        </div>
+        <div class="bks-all">
+            <div class="film">
+            <div class="bks-film">
+                <img src="XXI2.jpg" alt="" id="img">
+            </div>
+            <div class="btn">
+                <button>reffvd</but0ton>
+                <button>wachaa</button>
+            </div>
+            
+        </div>
+        <div class="tengah">
+            <div class="btnn">
+                <div class="tn2">
+                    <h2>Judul Film</h2>
+                    <div class="bbt">
+                        <button>Tonton</button>
+                        <button>Download</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bks">
+                 <h3>sinopsis</h3>
+            </div>
+           <div class="kt">
+            <div class="font">
+                <p id="sinopsis"></p>
+            </div>
+                
+           </div>
+            
+        </div>
+        <div class="kiri">
+        <select name="" id="film">
+            <option value="">-- Pilih Film --</option>
+            <option value="film1">The Comjuring - Lats Rites</option>
+            <option value="film2">Exit 8</option>
+            <option value="film3">the long Walk</option>
+        </select>
+        <p id="harga">0</p>
+    
+        <input type="number" id="j_ticket">
+        <button onclick="hitung()">Hitung</button>
+        <p>Total bayar : <span id="bayar">0</span></p>
+    </div>
+        </div>
+        
+        </div>
+        
+        
+        
+
+    
+    
+    
+    <script>
+        let selectElement = document.getElementById('film');
+        let imgElement = document.getElementById('img')
+
+        selectElement.addEventListener("change",function(){
+            let selectValue = selectElement.value;
+
+            if(selectValue === "film1"){
+                imgElement.src = 'the conjuring.jpg'
+                harga = 50000;
+                sinopsis = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem distinctio et esse dolor rerum molestias itaque impedit deserunt sunt fugit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem dicta nihil, aspernatur id voluptate ipsa Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quasi dolorum ipsam officiis quisquam non odio repudiandae vitae similique enim sint, esse architecto sapiente asperiores, dicta modi tenetur corrupti totam reiciendis maxime iusto provident deserunt!'
+            }else if(selectValue === "film2"){
+                imgElement.src = 'exit8.jpg'
+                harga = 45000;
+                sinopsis = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem distinctio et esse dolor rerum molestias itaque impedit deserunt sunt fugit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem dicta nihil, aspernatur id voluptate ipsa Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quasi dolorum ipsam officiis quisquam non odio repudiandae vitae similique enim sint, esse architecto sapiente asperiores, dicta modi tenetur corrupti totam reiciendis maxime iusto provident deserunt!'
+            }else if(selectValue === "film3"){
+                imgElement.src = 'the long walk.webp'
+                harga = 55000;
+                sinopsis = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem distinctio et esse dolor rerum molestias itaque impedit deserunt sunt fugit Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem dicta nihil, aspernatur id voluptate ipsa Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quasi dolorum ipsam officiis quisquam non odio repudiandae vitae similique enim sint, esse architecto sapiente asperiores, dicta modi tenetur corrupti totam reiciendis maxime iusto provident deserunt!'
+            }
+            const format = harga.toLocaleString('id-ID')
+            document.getElementById('harga').textContent= `Rp${format}`;
+            document.getElementById('sinopsis').textContent= sinopsis;
+        });
+        function hitung(){
+            let j_ticket = parseFloat(document.getElementById('j_ticket').value);
+            let bayar = harga* j_ticket
+            const format = harga.toLocaleString('id-ID')
+            document.getElementById('bayar').textContent = `Rp${format}`;
+        }
+    </script>
+    <style>
+        img{
+            width: 75%;
+            height: 65vh;
+        }
+    </style>
+    </html>
+</body>

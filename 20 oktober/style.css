@@ -1,0 +1,262 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.con{
+    width: 100%;
+    height: 98,5vh;
+}
+
+.name{
+    background-color: rgb(137, 99, 99);
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.a{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 30vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.a p{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.a span{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.b{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 30vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.b p{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.b span{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.c{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 30vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.c p{
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+.c span{
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+.d{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 30vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.d p{
+    font-size: 23px;
+    margin-left: 20px;
+}
+
+.d span{
+    font-size: 20px;  
+    margin-left: 20px;  
+}
+
+.e{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 30vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.e p{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.e span{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.f{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 30vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.f p{
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+.f span{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.g{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 30vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.g p{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.g span{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.container1{
+    display: flex;
+}
+
+.container2 {
+    overflow: scroll;
+    height: 88vh;
+}
+
+.container2::-webkit-scrollbar{
+    display: none;
+}
+.h{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 30vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.h p{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.h span{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.i{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 30vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.i p{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.i span{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.j{
+    background-color: rgb(146, 129, 119);
+    width: 80%;
+    height: 25vh;
+    border-radius: 10px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.j p{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.j span{
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+/* .container2{
+
+    display: flex;
+
+} */
+
+.container3 {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    width: 50%;
+    height: 85vh;
+}
+
+.container3 span {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    border-radius: 10px;
+    width: 50%;
+    height: 50vh;
+    margin-left: 130px;
+    background-color: rgb(150, 102, 102);
+}
+
+.container3 button{
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.container3 p{
+    margin-top: 80px;
+}
+

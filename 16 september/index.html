@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .all{
+            width: 100%;
+            height: 100vh;
+        }
+        .container32 {
+            display: flex;
+        }
+     button{
+            cursor: pointer;
+            background-color: rgb(142, 118, 99);
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px 2px #7e7e7e;
+        }
+
+        button:hover{
+            color: rgb(255, 255, 254);
+        }
+
+        img{
+            width: 40%;
+        }
+        .modal{
+            width: 50%;
+            height: 70vh;
+            position: fixed;
+            background-color: rgb(100, 78, 66);
+            box-shadow: 2px 2px 10px 2px #000000;
+            z-index: 99;
+            border-radius: 5px;
+            
+        }
+
+        .close{
+            width: 100%;
+            height: 5vh;
+            background-color: rgb(142, 118, 99);
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .modal-content{
+            width: 100%;
+            height: 5vh;
+            background-color: rgb(0, 0, 0);
+        }
+
+        
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>no</th>
+            <th>nama</th>
+            <th>detail</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>foto1</td>
+            <td>Lorem ipsum dolor sit amet doloremque voluptates quas.</td>
+            <td>
+                <button id="btn">detail</button>
+          </td>
+        </tr>
+    </table>
+    <div class="all">
+                <div class="modal" id="myModal">
+                <span class="close">Close</span>
+                <div class="modal-content">
+                    <div class="card">
+                        <div class="card-img">
+                            <img src="100.jpeg" alt="img">
+                            <h3>nama : giftania yuve</h3>
+                            <p><strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, ducimus!</strong></p>
+                            <p><strong>Lorem ipsum dolor sit amet.</strong></p>
+
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <script>
+                    let modal = document .getElementById('myModal');
+                    let btn = document .getElementById('btn');
+                    let span = document .getElementsByClassName('close')[0];
+
+                    btn.onclick = function(){
+                        modal.style.display = "block";
+                    }
+                    window .onclick = function(event){
+                        if(event.target == span){
+                            modal.style.display = "none";
+                        }
+                    }
+
+                </script>
+  
+    
+</body>
+</html>

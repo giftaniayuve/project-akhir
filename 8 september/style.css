@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+}
+
+.container{
+    width: 80vw;
+    height: 80vh;
+    margin-left: 130px;
+    margin-top: 50px;
+}
+
+.container1 {
+    display: flex;
+        gap: 20px;
+
+}
+
+.judul{
+    font-size: 20px;
+    margin-left: 250px;
+}
+
+.co2{
+    background-color: aliceblue;
+    width: 500px;
+    height: 70vh;
+    background-color: rgb(180, 237, 237);
+}
+
+.co2{
+    text-align: center;
+}
+
+.co2 .text {
+    font-size: 150pt;
+    display: flex;
+    margin-left: 125px;
+}
+
+.co2 .button1 button {
+    background-color: red;
+    border: none;
+}

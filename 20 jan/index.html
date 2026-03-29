@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header"><h2>aplikasi add nilai siswa</h2></div>
+        <div class="ya">
+            <input type="text" id="nama" placeholder="input nama siswa">
+             <input type="number" id="nilai" placeholder="input nama siswa">
+              <input type="number" id="kehadiran" placeholder="input kehadiran siswa">
+              </div>
+              
+              <button onclick="tambahsiswa()">input siswa</button>
+              <table>
+                <tr>
+                    <th>nama</th>
+                    <th>nilai</th>
+                    <th>kehadiran</th>
+                    <th>grade</th>
+                    <th>status</th>
+
+                </tr>
+                <tbody id="tabel Siswa"></tbody>
+              </table>
+              <div class="rata-rata" id="ratarata"></div>
+    </div>
+
+    <script>
+        const daftarsiswa = [];
+        function tambahsiswa(){
+            const nama = document.getElementById('nama').value;
+            const nilai = parseFloat(document.getElementById('nilai').value);
+            const kehadiran = parseFloat(document.getElementById('kehadiran').value);
+        
+
+        if(nama === "" || isNaN(nilai)  ||  isNaN(kehadiran)){
+            alert('semua form harus terisi');
+            return;
+        }
+
+         if(nilai > 100  || kehadiran < 0||kehadiran > 100){
+            alert('nilai dan kehadiran harus 0 s/d 100');
+        }
+
+        let grade = ""
+        if(nilai >= 85){
+            grade = "A"
+        }else if(nilai >= 75){
+            grade="B"
+        }else if(nilai >= 60){
+            grade="C"
+        }else{
+            grade="D"
+        }
+        let status = "";
+        if(nilai >= 70 && kehadiran >= 80){
+            status = "lulus"
+        }
+        else{
+            status = " tidak lulus";
+        }
+
+        const siswa = {
+            nama,
+            nilai,
+            kehadiran,
+            grade,
+            status
+        };
+
+        daftarsiswa.push(siswa);
+        tampilkansiswa();
+        hitungRataRata();
+
+        document.getElementById('nama').value = "";
+        document.getElementById('nilai').value = "";
+        document.getElementById('kehadiran').value = "";
+    }ythggfbxgfbgbfcbx
+
+
+        function tampilkansiswa(){
+            const tabel = document.getElementById('tabelSiswa');
+            tabel.innerHTML = "";
+
+            daftarsiswa.forEach(siswa =>{
+                const row = `
+                <tr>
+                    <td>${siswa.nama}</td>
+                    <td>${siswa.nilai}</td>
+                    <td>${siswa.kehadiran}</td>
+                    <td>${siswa.grade}</td>
+                    <td>${siswa.status}</td>
+                </tr>`;
+
+                tabel.innerHTML += row
+            })
+        }
+
+        function hitungRataRata(){
+            let total = 0;
+
+            daftarsiswa.forEach(siswa =>{
+                total += siswa.nilai;
+            });
+
+            const rataRata = total / daftarsiswa.length;
+            document.getElementById('ratarata').innerText = `
+            Rata-rata Nilai Kelas : ${ratarata.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- <h1>function operator</h1>
+    <p>masukan angka 1</p>
+    <input id="ang1" type="number">
+    <p>masukkan angka 2</p>
+    <input type="number" id="ang2">
+    <p>pilih operator</p>
+    <select name="" id="operator">
+        <option value="tambah">tambah</option>
+        <option value="kurang">kurang</option>
+        <option value="bagi">bagi</option>
+        <option value="kali">kali</option>
+    </select>
+    <p>hasil1 : <span id="hasil"></span></p>
+    <button onclick="btn()">hitung</button>
+
+    <script>
+        function btn(){
+            let angka1 = parseFloat (document.getElementById('ang1').value);
+            let angka2 = parseFloat (document.getElementById('ang2').value);
+            let operator = document.getElementById(`operator`).value;
+
+            if(operator === 'tambah'){
+                let jumlah = angka1 + angka2
+                document.getElementById('hasil').innerHTML = jumlah
+            }else if(operator === 'kali'){
+                let jumlah = angka1 * angka2
+                document.getElementById('hasil').innerHTML = jumlah
+            }else if(operator === 'bagi'){
+                let jumlah = angka1 / angka2
+                document.getElementById('hasil').innerHTML = jumlah
+            }else if(operator === 'kurang'){
+                let jumlah = angka1 - angka2
+                document.getElementById('hasil').innerHTML = jumlah
+            }
+
+            let jumlah= angka1+ angka2
+            // console.log(angka1 + angka2)
+            document.getElementById(`hasil1`).innerHTML = jumlah
+        }
+    </script> -->
+
+
+    
+<div class="container">
+    <h1>function operator</h1>
+<p>masukan angka awal</p>
+<input id="angka1" type="number">
+<!-- <p>masukkan angka 2</p>
+<input type="number" id="ang2"> -->
+<p>pilih awal :</p>
+<select name="" id="awal">
+    <option value="cel">celcius</option>
+    <option value="rea">reamur</option>
+    <option value="fer">ferenheit</option>
+    <option value="kel">kelvin</option>
+    </select>
+    <p>pilih conferse ke :</p>
+<select name="" id="tujuan">
+    <option value="cel">celcius</option>
+    <option value="rea">reamur</option>
+    <option value="fer">ferenheit</option>
+    <option value="kel">kelvin</option>
+</select>
+<p>hasil : <span id="hasil"></span></p>
+<button onclick="tombol()">hitung</button>
+
+<script>
+    function tombol(){
+        let angka1 = parseFloat(document.getElementById('angka1').value);
+        // let angka2 = parseFloat (document.getElementById('ang2').value);
+        let awal = document.getElementById('awal').value;
+        let tujuan = document.getElementById('tujuan').value;
+
+        if(awal === 'cel'){
+            if(tujuan === 'kel'){
+                jumlah = angka1 + 273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'fer'){
+            jumlah = (9/5) *angka1 + 32 
+            document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'rea'){
+            jumlah = (4/5) *angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }else{
+            jumlah = angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+        
+        }
+            if(awal === 'kel'){
+            if(tujuan === 'cel'){
+                jumlah = angka1 - 273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'fer'){
+            jumlah = (9/5) *(angka1 - 32) + 273
+            document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'rea'){
+            jumlah = (5/4) *angka1+273
+            document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }else{
+            jumlah = angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+        }
+
+        if(awal === 'fer'){
+            if(tujuan === 'kel'){
+                jumlah = (9/5)*angka1 * (angka1 - 273)+32
+                document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'cel'){
+            jumlah = (9/5) *angka1 + 32 
+            document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'rea'){
+            jumlah = (9/4) *angka1 + 32
+            document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }else{
+            jumlah = angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+        }
+
+        if(awal === 'rea'){
+            if(tujuan === 'kel'){
+                jumlah = (4/5)*angka1-273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'fer'){
+            jumlah = (4/9) *angka1 - 32 
+            document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'cell'){
+            jumlah = (4/5) *angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }else{
+            jumlah = angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+    }
+}
+    
+
+        // let jumlah= angka1 ubah sesuai operator
+        // console.log(angka1 + angka2)
+        // document.getElementById(`hasil1`).innerHTML = jumlah
+    
+</script>
+
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- <h1>function operator</h1>
+    <p>masukan angka 1</p>
+    <input id="ang1" type="number">
+    <p>masukkan angka 2</p>
+    <input type="number" id="ang2">
+    <p>pilih operator</p>
+    <select name="" id="operator">
+        <option value="tambah">tambah</option>
+        <option value="kurang">kurang</option>
+        <option value="bagi">bagi</option>
+        <option value="kali">kali</option>
+    </select>
+    <p>hasil1 : <span id="hasil"></span></p>
+    <button onclick="btn()">hitung</button>
+
+    <script>
+        function btn(){
+            let angka1 = parseFloat (document.getElementById('ang1').value);
+            let angka2 = parseFloat (document.getElementById('ang2').value);
+            let operator = document.getElementById(`operator`).value;
+
+            if(operator === 'tambah'){
+                let jumlah = angka1 + angka2
+                document.getElementById('hasil').innerHTML = jumlah
+            }else if(operator === 'kali'){
+                let jumlah = angka1 * angka2
+                document.getElementById('hasil').innerHTML = jumlah
+            }else if(operator === 'bagi'){
+                let jumlah = angka1 / angka2
+                document.getElementById('hasil').innerHTML = jumlah
+            }else if(operator === 'kurang'){
+                let jumlah = angka1 - angka2
+                document.getElementById('hasil').innerHTML = jumlah
+            }
+
+            let jumlah= angka1+ angka2
+            // console.log(angka1 + angka2)
+            document.getElementById(`hasil1`).innerHTML = jumlah
+        }
+    </script> -->
+
+
+    
+<div class="container">
+    <h1>function operator</h1>
+<p>masukan angka awal</p>
+<input id="angka1" type="number">
+<!-- <p>masukkan angka 2</p>
+<input type="number" id="ang2"> -->
+<p>pilih awal :</p>
+<select name="" id="awal">
+    <option value="cel">celcius</option>
+    <option value="rea">reamur</option>
+    <option value="fer">ferenheit</option>
+    <option value="kel">kelvin</option>
+    </select>
+    <p>pilih conferse ke :</p>
+<select name="" id="tujuan">
+    <option value="cel">celcius</option>
+    <option value="rea">reamur</option>
+    <option value="fer">ferenheit</option>
+    <option value="kel">kelvin</option>
+</select>
+<p>hasil : <span id="hasil"></span></p>
+<button onclick="tombol()">hitung</button>
+
+<script>
+    function tombol(){
+        let angka1 = parseFloat(document.getElementById('angka1').value);
+        // let angka2 = parseFloat (document.getElementById('ang2').value);
+        let awal = document.getElementById('awal').value;
+        let tujuan = document.getElementById('tujuan').value;
+
+        if(awal === 'cel'){
+            if(tujuan === 'kel'){
+                jumlah = angka1 + 273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'fer'){
+            jumlah = (9/5) *angka1 + 32 
+            document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'rea'){
+            jumlah = (4/5) *angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }else{
+            jumlah = angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+        
+        }
+            if(awal === 'kel'){
+            if(tujuan === 'cel'){
+                jumlah = angka1 - 273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'fer'){
+            jumlah = (9/5) *(angka1 - 32) + 273
+            document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'rea'){
+            jumlah = (5/4) *angka1+273
+            document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }else{
+            jumlah = angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+        }
+
+        if(awal === 'fer'){
+            if(tujuan === 'kel'){
+                jumlah = (9/5)*angka1 * (angka1 - 273)+32
+                document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'cel'){
+            jumlah = (9/5) *angka1 + 32 
+            document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'rea'){
+            jumlah = (9/4) *angka1 + 32
+            document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }else{
+            jumlah = angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+        }
+
+        if(awal === 'rea'){
+            if(tujuan === 'kel'){
+                jumlah = (4/5)*angka1-273
+                document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'fer'){
+            jumlah = (4/9) *angka1 - 32 
+            document.getElementById('hasil').innerHTML = jumlah;
+            }else if(tujuan === 'cell'){
+            jumlah = (4/5) *angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+            }
+        }else{
+            jumlah = angka1
+            document.getElementById('hasil').innerHTML = jumlah;
+    }
+}
+    
+
+        // let jumlah= angka1 ubah sesuai operator
+        // console.log(angka1 + angka2)
+        // document.getElementById(`hasil1`).innerHTML = jumlah
+    
+</script>
+
+</div>
+</body>
+</html>
+

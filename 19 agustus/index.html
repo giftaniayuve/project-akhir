@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19 agustus 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <h2>tebak angka</h2><br>
+    <input type="number" id="angka"><br><br>
+    <button onclick="tebak()" id="tebak">tebak</button>
+</div>
+<div class="container2">
+    <p>hasil:   <span id="hasil"></span></p><br><br><br><br><br><br>
+    <button onclick="main()" id="main">main lagi?</button>
+
+</div>
+    <script>
+        let komputer = Math.floor(Math.random()*10)+1;
+        function tebak(){
+            let angka = parseFloat(document.getElementById('angka').value)
+            if(komputer === angka){
+                document.getElementById('hasil').innerHTML = `kamu berhasil menebak angkanya: ${komputer}`;
+                document.getElementById('tebak').disabled = true
+
+            }else if(komputer < angka){
+                document.getElementById('hasil').innerHTML = `angka yang ditebak terlalu besar`;
+            }else{
+                document.getElementById('hasil').innerHTML = `angka yang ditebak terlalu kecil`;
+            }
+        }
+
+        function mmain(){
+            document.getElementById('tebak').disabled = false
+
+        }
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for loop</title>
+</head>
+<body>
+    <script>
+        // let teman = ['azika','milano','wira','darel']
+        // for(let i = 0; i < teman.length ; i++) {
+        //     console.log(`teman ke-${i+1} ${teman(i)}`)
+        // }
+
+    //     for(let i = 1; i<= 3; i++){
+    //         console.log('i see my self              '+i)
+    //     }
+    //     console.log('in the miror')
+    // </script>
+
+
+
+        <h1>program perkalian</h1>
+        <span>masukan angka</span><br>
+        <input type="number" id="angka"><br><br>
+        <button onclick="hitung()">hitung</button><br>          
+        <p>hasil : <br><span id = "hasil"></span></p>
+
+        <script>
+
+            function hitung(){
+                let angka =parseFloat( document. getElementById('angka').value);
+                let result = '';
+            for(let i = 1; i <= 10; i++){
+                result += `${i} x ${angka} = ${i*angka}<br>`
+            }
+                document.getElementById('hasil').innerHTML = result
+            }
+        
+        </script>
+
+</body>
+</html>

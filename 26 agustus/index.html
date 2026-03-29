@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist by giftania</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="sidebar">
+        <div>
+            <div class="menu">
+                <ul>
+                    <li>🏡 Home</li>
+                    <li>⭐ Browse</li>
+                    <li>🎵 Radio</li>
+                </ul>
+                 </div>
+             <div class="playlist">
+                <h3>Playlist</h3>
+                <ul>
+                    <li>back to december - taylor swift</li>
+                    <li>steal my girl - one direction</li>
+                    <li>theres nothing holding me back - shawn mendes</li>
+                    <li>if i cant have you - shawn mendes</li>
+                    <li>whats make you beautiful - one direction</li>
+                </ul>
+            </div>
+            <div class="new-playlist">
+                <h1>  New Playlist +</h1>
+                <h2></h2>
+            </div>
+        </div>
+
+        <div class="welcome">
+            <h1>Welcome giftania</h1>
+
+            <div class="profile-indicator"></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="info">
+            <span>giftania</span>
+            <div class="badge"></div>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Cari musik"/>
+        </div>
+        
+        <div class="playlist-info">
+            <div class="gtw"></div>
+            <div class="playlist-details">
+                <small>Playlist</small>
+                <h2>Playlist giftania</h2>
+                <div class="playlist-meta" id="titlePlaylist">Lagu</div>
+                <button>Download</button>
+            </div>
+        </div>
+         <div class="lirik" id="lirik">Lirik lagu ada disini!
+    </div>
+    <!-- <h2>Spotify by giftania yuve</h2> -->
+      <div class="table-wrapper" aria-label="">
+        <table role="table" aria-describedby="table-desc">
+
+
+
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Album</th>
+            <th>Waktu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr onclick="pilihlagu(0)">
+            <td>1</td>
+            <td>back to december</td>
+            <td>Taylor Swift</td>
+            <td>speak now</td>
+            <td>4:53</td>
+        </tr>
+
+        <tr onclick="pilihlagu(1)">
+            <td>2</td>
+            <td>steal my girl</td>
+            <td>one direction</td>
+            <td>FOUR</td>
+            <td>3:48</td>
+        </tr>
+
+        <tr onclick="pilihlagu(2)">
+            <td>3</td>
+            <td>there's nothing holding me back </td>
+            <td>shawn mendes</td>
+            <td>llluminate</td>
+            <td>3:19</td>
+        </tr>
+
+        <tr onclick="pilihlagu(3)">
+            <td>4</td>
+            <td>if i cant have you</td>
+            <td>shawn mendes</td>
+            <td>shawn mendes(deluxe)</td>
+            <td>3:11</td>
+        </tr>
+
+        <tr onclick="pilihlagu(4)">
+            <td>5</td>
+            <td>what make's you beutifull</td>
+            <td>one direction</td>
+            <td>upp all night</td>
+            <td>3:19</td>
+        </tr>
+
+        <tr onclick="pilihlagu(5)">
+            <td>6</td>
+            <td>location unknown</td>
+            <td>honne</td>
+            <td>love me/ love me not</td>
+            <td>5:28</td>
+        </tr>
+
+        <tr onclick="pilihlagu(6)">
+            <td>7</td>
+            <td>treat you better</td>
+            <td>shawn mendes</td>
+            <td>llluminate</td>
+            <td>3:07</td>
+        </tr>
+
+        <tr onclick="pilihlagu(7)">
+            <td>8</td>
+            <td>drunk text</td>
+            <td>henry moodie</td>
+            <td>in all of my lonely nights</td>
+            <td>3:07</td>
+        </tr>
+
+        <tr onclick="pilihlagu(8)">
+            <td>9</td>
+            <td> closer </td>
+            <td>the chainsmokers</td>
+            <td>closer</td>
+            <td>4:04</td>
+        </tr>
+
+        <tr onclick="pilihlagu(9)">
+            <td>10</td>
+            <td>stitches </td>
+            <td>shawn mendes</td>
+            <td>handwritten</td>
+            <td>3:26</td>
+        </tr>
+        </tbody>
+        </table>
+      </div>
+
+        <div class="yes">
+            <audio src="" id="audioPlayer" controls></audio><br>
+            <div class="bu">
+            <button onclick="prevSong()">Prev</button>
+            <button onclick="pauseSong()">Play/Pause</button>
+            <button onclick="stopSong()">Stop</button>
+            <button onclick="nextSong()">Next</button>
+            <button onclick="ulangi()">Repeat : Off</button>
+        </div>
+        <br>
+        </div>
+        </div>
+    </table>
+    <!-- <div class="lirik">
+    <div class="lirik" id="lirik">
+        Lirik lagu ada di sini!
+    </div>
+    </div> -->
+<!-- </div> -->
+
+    <script>
+        const audioPlayer = document.getElementById('audioPlayer');
+        const lirik = document.getElementById('lirik');
+     const btnUlangi = document.querySelector("button[onclick='ulangi()']");
+     let isRepeat = false;
+
+     const lagu = [
+        {
+            src: 'Taylor Swift - Back To December (Taylor’s Version) _ Lirik Terjemahan.mp4',lirik:`I'm so glad you made time to see me
+How's life? Tell me how's your family?
+I haven't seen them in a while
+
+You've been good, busier than ever
+We small-talk, work and the weather
+Your guard is up and I know why
+
+Because the last time you saw me is still burned in the back of your mind
+You gave me roses and I left them there to die
+
+So this is me swallowing my pride
+Standing in front of you, saying, "I'm sorry for that night,"
+And I go back to December all the time
+
+It turns out freedom ain't nothing but missing you
+Wishing I'd realized what I had when you were mine
+I'd go back to December, turn around and make it all right
+I go back to December all the time
+
+These days I haven't been sleeping
+Staying up, playing back myself leaving
+When your birthday passed and I didn't call
+
+And I think about summer, all the beautiful times
+I watched you laughing from the passenger side
+And realized I loved you in the fall
+
+And then the cold came, the dark days when fear crept into my mind
+You gave me all your love and all I gave you was "Goodbye"
+
+So this is me swallowing my pride
+Standing in front of you, saying, "I'm sorry for that night."
+And I go back to December all the time
+
+It turns out freedom ain't nothing but missing you
+Wishing I'd realized what I had when you were mine
+I'd go back to December, turn around and change my own mind
+I go back to December all the time
+
+I miss your tanned skin, your sweet smile
+So good to me, so right
+And how you held me in your arms that September night:
+The first time you ever saw me cry
+
+Maybe this is wishful thinking
+Probably mindless dreaming
+But if we loved again, I swear I'd love you right
+
+I'd go back in time and change it but I can't
+So if the chain is on your door I understand
+
+But this is me swallowing my pride
+Standing in front of you, saying, "I'm sorry for that night."
+And I go back to December
+
+It turns out freedom ain't nothing but missing you
+Wishing I'd realized what I had when you were mine
+I'd go back to December, turn around and make it all right
+I'd go back to December, turn around and change my own mind
+
+I go back to December all the time
+All the time`
+        },
+        {
+            src: 'Steal My Girl - One Direction (Lyrics video dan terjemahan).mp4 ',lirik:`She been my queen
+Since we were sixteen
+We want the same things,
+We dream the same dreams,
+Alright (alright)
+
+I got it all
+'Cause she is the one
+Her mom calls me 'love',
+Her dad calls me 'son',
+Alright (alright)
+
+[Niall Horan:]
+I know, I know, I know for sure
+
+[All x2:]
+Everybody wanna steal my girl
+Everybody wanna take her heart away
+Couple billion in the whole wide world
+Find another one 'cause she belongs to me
+
+Na na na na na na (oh, yeah)
+Na na na na na na (alright)
+Na na na na na na
+Na na
+
+[Harry Styles:]
+She belongs to me
+
+[Liam Payne:]
+Kisses like cream,
+Her walk is so mean
+And every jaw drop
+When she's in those jeans,
+Alright (alright)
+
+[Louis Tomlinson:]
+I don't exist
+If I don't have her
+The sun doesn't shine,
+The world doesn't turn,
+Alright (alright)
+
+[Niall Horan:]
+But I know, I know, I know for sure
+
+[All x2:]
+Everybody wanna steal my girl
+Everybody wanna take her heart away
+Couple billion in the whole wide world
+Find another one 'cause she belongs to me
+
+Na na na na na na (oh, yeah)
+Na na na na na na (alright)
+Na na na na na na
+Na na na na na na
+
+[Harry Styles:]
+She knows, she knows
+That I've never let her down before
+She knows, she knows
+That I'm never gonna let another take her love from me now
+
+[All x2:]
+Everybody wanna steal my girl
+Everybody wanna take her heart away
+Couple billion in the whole wide world
+Find another one 'cause she belongs to me
+
+Na na na na na na (oh, yeah, alright, yeah)
+Na na na na na na (alright)
+Na na na na na na
+Na na
+
+She belongs to me
+
+Na na na na na na (oh, yeah)
+(She belongs to me, yeah)
+Na na na na na na (alright)
+Na na na na na na
+
+She belongs to me
+`
+        },
+
+        {
+            src: 'Shawn Mendes ‒ Theres Nothing Holding Me Back (Lyrics).mp4',lirik:`I wanna follow where she goes
+I think about her and she knows it
+I wanna let her take control
+'Cause every time that she gets close, yeah
+
+She pulls me in enough to keep me guessing, mmm
+And maybe I should stop and start confessing
+Confessing, yeah
+
+Oh, I've been shaking
+I love it when you go crazy
+You take all my inhibitions
+Baby, there's nothing holdin' me back
+
+You take me places that tear up my reputation
+Manipulate my decisions
+Baby, there's nothing holdin' me back
+
+There's nothing holdin' me back
+There's nothing holdin' me back
+
+She says that she's never afraid
+Just picture everybody naked
+She really doesn't like to wait
+Not really into hesitation
+
+Pulls me in enough to keep me guessing, whoa
+And maybe I should stop and start confessing
+Confessing, yeah
+
+Oh, I've been shaking
+I love it when you go crazy
+You take all my inhibitions
+Baby, there's nothing holdin' me back
+
+You take me places that tear up my reputation
+Manipulate my decisions
+Baby, there's nothing holdin' me back
+
+There's nothing holdin' me back
+
+'Cause if we lost our minds
+And we took it way too far
+I know we'd be alright,
+Know we would be alright
+
+If you were by my side
+And we stumbled in the dark
+I know we'd be alright,
+I know we would be alright
+
+'Cause if we lost our minds
+And we took it way too far
+I know we'd be alright,
+I know we would be alright
+
+If you were by my side
+And we stumbled in the dark
+I know we'd be alright,
+We would be alright
+
+Oh, I've been shaking
+I love it when you go crazy
+You take all my inhibitions
+Baby, there's nothing holdin' me back
+
+You take me places that tear up my reputation
+Manipulate my decisions
+Baby, there's nothing holdin' me back
+
+There's nothing holdin' me back
+
+I feel so free
+When you're with me,
+Baby
+
+Baby, there's nothing holdin' me back
+`
+        },
+
+        {
+            src: 'Shawn Mendes - If I Cant Have You (Lyrics).mp4',lirik:`I can't write one song that's not about you
+Can't drink without thinkin' about you
+Is it too late to tell you that
+Everything means nothing if I can't have you?
+
+I'm in Toronto and I got this view
+But I might as well be in a hotel room, yeah
+It doesn't matter 'cause I'm so consumed
+Spending all my nights reading texts from you
+
+Oh, I'm good at keepin' my distance
+I know that you're the feelin' I'm missing
+You know that I hate to admit it
+But everything means nothin' if I can't have you
+
+I can't write one song that's not about you
+Can't drink without thinkin' about you
+Is it too late to tell you that
+Everything means nothing if I can't have you?
+I can't write one song that's not about you
+Can't drink without thinkin' about you
+Is it too late to tell you that
+Everything means nothing if I can't have you?
+
+I'm so sorry that my timing's off
+But I can't move on if we're still gonna talk
+Is it wrong for me to not want half?
+I want all of you, all the strings attached
+
+Oh, I'm good at keepin' my distance
+I know that you're the feelin' I'm missing
+You know that I hate to admit it
+But everything means nothin' if I can't have you
+
+I can't write one song that's not about you
+Can't drink without thinkin' about you
+Is it too late to tell you that
+Everything means nothing if I can't have you?
+I can't write one song that's not about you
+Can't drink without thinkin' about you
+Is it too late to tell you that
+Everything means nothing if I can't have you?
+
+I'm trying to move on
+Forget you, but I hold on
+Everything means nothing
+Everything means nothing, babe
+I'm trying to move on
+Forget you, but I hold on
+Everything means nothing if I can't have you, no
+
+I can't write one song that's not about you
+Can't drink without thinkin' about you
+Is it too late to tell you that
+Everything means nothing if I can't have you?
+I can't write one song that's not about you
+Can't drink without thinkin' about you
+Is it too late to tell you that
+Everything means nothing if I can't have you?`
+        },
+
+        {
+            src:'One Direction - What Makes You Beautiful(Lyrics)🎵.mp4' ,lirik:`You're insecure
+Don't know what for
+You're turning heads when you walk through the door
+Don't need make up
+To cover up
+Being the way that you are is enough
+
+Everyone else in the room can see it
+Everyone else but you
+
+[Chorus]
+Baby you light up my world like nobody else
+The way that you flip your hair gets me overwhelmed
+But when you smile at the ground it aint hard to tell
+You don't know
+Oh Oh
+You don't know you're beautiful
+
+If only you saw what I can see
+You'll understand why I want you so desperately
+Right now I'm looking at you and I can't believe
+You don't know
+Oh oh
+You don't know you're beautiful
+Oh oh
+But that's what makes you beautiful
+
+So c-come on
+You got it wrong
+To prove I'm right I put it in a song
+I don't know why
+You're being shy
+And turn away when I look into your eyes
+
+Everyone else in the room can see it
+Everyone else but you
+
+[Chorus]
+Baby you light up my world like nobody else
+The way that you flip your hair gets me overwhelmed
+But when you smile at the ground it aint hard to tell
+You don't know
+
+Oh oh
+You don't know you're beautiful
+
+If only you saw what I can see
+You'll understand why I want you so desperately
+Right now I'm looking at you and I can't believe
+You don't know
+Oh oh
+You don't know you're beautiful
+Oh oh
+But that's what makes you beautiful
+
+[Bridge]
+Nana Nana Nana Nana
+Nana Nana Nana Nana
+Nana Nana Nana Nana
+
+Baby you light up my world like nobody else
+The way that you flip your hair gets me overwhelmed
+But when you smile at the ground it aint hard to tell
+You don't know
+Oh Oh
+You don't know you're beautiful
+
+[Chorus]
+Baby you light up my world like nobody else
+The way that you flip your hair gets me overwhelmed
+But when you smile at the ground it aint hard to tell
+You don't know
+Oh oh
+You don't know you're beautiful
+
+If only you saw what I can see
+You'll understand why I want you so desperately
+Right now I'm looking at you and I can't believe
+You don't know
+Oh Oh
+You don't know you're beautiful
+Oh oh
+You don't know you're beautiful
+Oh oh
+But that's what makes you beautiful
+`
+        },
+
+        {
+            src: 'Location Unknown - HONNE feat. BEKA (Lyrics video dan terjemahan).mp4',lirik:`Traveling places
+I ain't seen you in ages
+But I hope you come back to me
+My mind's running wild
+With you far away
+I still think of you a hundred times a day
+
+I still think of you too
+If only you knew
+When I'm feeling a bit down, I don't wanna pull through
+I look over your photograph
+And I think how much I miss you
+I miss you
+
+I wish I knew where I was
+'Cause I don't have a clue
+I just need to work out some way of getting me to you
+'Cause I will never find love like ours out here
+In a million years
+A million years
+
+My location unknown
+Tryna find a way back home
+To you again
+I gotta get back to you
+Gotta, gotta get back to you
+My location unknown
+Tryna find a way back home
+To you again
+I gotta get back to you
+Gotta, gotta get back to you
+
+I just need to know that you're safe
+Given that I'm miles away
+On the first flight
+Back to your side
+I don't care how long it takes
+I know you'll be worth the wait
+On the first flight
+Back to your side
+
+Traveling places
+I ain't seen you in ages
+But I hope you come back to me
+My mind's running wild
+With you far away
+I still think of you a hundred times a day
+
+I still think of you too
+If only you knew
+I just need to work out some way of getting me to you
+'Cause I will never find love like ours out here
+In a million years
+A million years
+
+My location unknown
+Tryna find a way back home
+To you again
+I gotta get back to you
+Gotta, gotta get back to you
+My location unknown
+Tryna find a way back home
+To you again
+I gotta get back to you
+Gotta, gotta get back to you
+
+I just need to know that you're safe
+Given that I'm miles away
+On the first flight
+Back to your side
+I don't care how long it takes
+I know you'll be worth the wait
+On the first flight
+Back to your side
+
+I don't want to be wasting time, without you
+Don't want to throw away my life
+I need you
+Something tells me we'll be alright, yeah
+Something tells me we'll be alright, alright
+I don't want to be wasting time, without you
+Don't want to throw away my life, I need you
+Something tells me we'll be alright
+Yeah, something tells me we'll be alright, alright
+
+My location unknown
+Tryna find a way back home
+To you again
+I gotta get back to you
+Gotta, gotta get back to you
+My location unknown
+Tryna find a way back home
+To you again
+I gotta get back to you
+Gotta, gotta get back to you
+
+I just need to know that you're safe
+Given that I'm miles away
+On the first flight
+Back to your side
+I don't care how long it takes
+I know you'll be worth the wait
+On the first flight
+Back to your side`
+        },
+
+         {
+            src: 'Treat You Better - Shawn Mendes (Lirik Lagu Terjemahan) (1).mp4',lirik:`I won't lie to you
+I know he's just not right for you
+And you can tell me if I'm off
+But I see it on your face
+When you say that he's the one that you want
+And you're spending all your time
+In this wrong situation
+And anytime you want it to stop
+
+I know I can treat you better than he can
+And any girl like you deserves a gentleman
+Tell me why are we wasting time
+On all your wasted crying
+When you should be with me instead
+I know I can treat you better
+Better than he can
+
+I'll stop time for you
+The second you say you'd like me to
+I just wanna give you the loving that you're missing
+Baby, just to wake up with you
+Would be everything I need and this could be so different
+Tell me what you want to do
+
+'Cause I know I can treat you better than he can
+And any girl like you deserves a gentleman
+Tell me why are we wasting time
+On all your wasted crying
+When you should be with me instead
+I know I can treat you better
+Better than he can
+
+Better than he can
+
+Give me a sign
+Take my hand, we'll be fine
+Promise I won't let you down
+Just know that you don't
+Have to do this alone
+Promise I'll never let you down
+
+'Cause I know I can treat you better than he can
+And any girl like you deserves a gentleman
+Tell me why are we wasting time
+On all your wasted crying
+When you should be with me instead
+I know I can treat you better
+Better than he can
+
+Better than he can
+
+Better than he can`
+        },
+
+        {
+            src: '@HenryMoodie  - drunk text (Lyrics).mp4',lirik:`5th of November
+When I walked you home
+That's when I nearly said it
+But then said "Forget it" and froze
+
+Do you remember?
+You probably don't
+'Cause the sparks in the sky
+Took a hold of your eyes while we spoke
+
+Yesterday, drank way too much
+And stayed up too late
+Started to write what I wanna say
+Deleted the message but I still remember it said
+
+I wish I was who you drunk texted at midnight
+Wish I was the reason you stay up till 3
+And you can't fall asleep
+Waiting for me to reply
+I wish I was more than just someone you walk by
+Wish I wasn't scared to be honest and open
+Instead of just hoping
+You'd feel what I'm feeling inside
+
+April the 7th
+And nothing has changed
+It's hard to get by
+When you're still on my mind everyday
+
+Sometimes I question
+If you feel the same?
+Do we make stupid jokes?
+Tryna hide that we're both too afraid to say
+
+I wish I was who you drunk texted at midnight
+Wish I was the reason you stay up till 3
+And you can't fall asleep
+Waiting for me to reply
+I wish I was more than just someone you walk by
+Wish I wasn't scared to be honest and open
+Instead of just hoping
+You'd feel what I'm feeling inside
+
+Oh, and here we go again
+Destroying myself to keep a friend
+Hiding away 'cause I was afraid you'd say no
+I wonder if I cross your mind
+Half as much as you do mine
+If I tell you the truth
+What will I lose? I don't know
+
+I wish I'd sent you that drunk text that midnight
+I was just scared it would ruin our friendship
+But I really meant it
+I wonder how you would reply
+`
+        },
+
+        {
+            src: 'The Chainsmokers - Closer (Lyrics) ft. Halsey.mp4',lirik:`Hey, I was doing just fine before I met you
+I drink too much and that's an issue
+But I'm OK
+Hey, you tell your friends it was nice to meet them
+But I hope I never see them
+Again
+
+I know it breaks your heart
+Moved to the city in a broke-down car
+And four years, no calls
+Now you're looking pretty in a hotel bar
+And I, I, I, I, I can't stop
+No, I, I, I, I, I can't stop
+
+So, baby, pull me closer
+In the back seat of your Rover
+That I know you can't afford
+Bite that tattoo on your shoulder
+Pull the sheets right off the corner
+Of that mattress that you stole
+From your roommate back in Boulder
+We ain't ever getting older
+
+We ain't ever getting older
+We ain't ever getting older
+
+You look as good as the day I met you
+I forget just why I left you,
+I was insane
+Stay and play that Blink-182 song
+That we beat to death in Tucson
+OK
+
+I know it breaks your heart
+Moved to the city in a broke-down car
+And four years, no call
+Now I'm looking pretty in a hotel bar
+And I, I, I, I, I can't stop
+No, I, I, I, I, I can't stop
+
+So, baby, pull me closer
+In the back seat of your Rover
+That I know you can't afford
+Bite that tattoo on your shoulder
+Pull the sheets right off the corner
+Of that mattress that you stole
+From your roommate back in Boulder
+We ain't ever getting older
+
+We ain't ever getting older
+We ain't ever getting older
+
+So, baby, pull me closer
+In the back seat of your Rover
+That I know you can't afford
+Bite that tattoo on your shoulder
+Pull the sheets right off the corner
+Of that mattress that you stole
+From your roommate back in Boulder
+We ain't ever getting older
+
+We ain't ever getting older
+No, we ain't ever getting older
+We ain't ever getting older
+No, we ain't ever getting older
+We ain't ever getting older
+We ain't ever getting older
+We ain't ever getting older
+No, we ain't ever getting older
+
+We ain't ever getting older
+No, we ain't ever getting older`
+        },
+
+        {
+            src: 'Shawn Mendes - Stitches (Lyrics).mp4',lirik:`I thought that I'd been hurt before
+But no one's ever left me quite this sore
+Your words cut deeper than a knife
+Now I need someone to breathe me back to life
+
+Got a feeling that I'm going under
+But I know that I'll make it out alive
+If I quit calling you my lover
+Move on
+
+You watch me bleed until I can't breathe
+Shaking, falling onto my knees
+And now that I'm without your kisses
+I'll be needing stitches
+Tripping over myself
+Aching, begging you to come help
+And now that I'm without your kisses
+I'll be needing stitches
+
+Just like a moth drawn to a flame
+Oh, you lured me in, I couldn't sense the pain
+Your bitter heart cold to the touch
+Now I'm gonna reap what I sow
+I'm left seeing red on my own
+
+Got a feeling that I'm going under
+But I know that I'll make it out alive
+If I quit calling you my lover
+Move on
+
+You watch me bleed until I can't breathe
+Shaking, falling onto my knees
+And now that I'm without your kisses
+I'll be needing stitches
+Tripping over myself
+Aching, begging you to come help
+And now that I'm without your kisses
+I'll be needing stitches
+
+Needle and the thread
+Gotta get you out of my head
+Needle and the thread
+Gonna wind up dead
+
+Needle and the thread
+Gotta get you out of my head
+Needle and the thread
+Gonna wind up dead
+
+Needle and the thread
+Gotta get you out of my head
+Needle and the thread
+Gonna wind up dead
+
+Needle and the thread
+Gotta get you out of my head, get you out of my head
+
+You watch me bleed until I can't breathe
+Shaking, falling onto my knees (falling on my knees)
+And now that I'm without your kisses
+I'll be needing stitches (and I'll be needing stitches)
+Tripping over myself
+Aching, begging you to come help (begging, "Baby, please.")
+And now that I'm without your kisses
+I'll be needing stitches
+
+(And now that)
+I'm without your kisses
+I'll be needing stitches
+(And now that)
+I'm without your kisses
+I'll be needing stitches
+`
+        }
+    ];
+
+    let laguindex = 0;
+
+    function loadSong(index){
+        laguindex = index;
+        audioPlayer.pause();
+        audioPlayer.src = lagu[index].src;
+        audioPlayer.load();
+        audioPlayer.play();
+        lirik.innerText = lagu[index].lirik
+    }
+
+    function pauseSong(){
+        if(audioPlayer.paused){
+            audioPlayer.play()
+        }else{
+            audioPlayer.pause()
+        }
+    }
+
+    function stopSong(){
+        audioPlayer.pause();
+        audioPlayer.currentTime = 0;
+        
+    }
+
+    function nextSong(){
+        laguindex = (laguindex + 1 ) % lagu.length;
+        loadSong(laguindex);
+    }
+
+    function prevSong(){
+        laguindex = (laguindex - 1 + lagu.length ) % lagu.length;
+        loadSong(laguindex);
+    }
+
+    function pilihlagu(index){
+        loadSong(index);
+    }
+
+    function ulangi(){
+        isRepeat = !isRepeat;
+        btnUlangi.innerText = isRepeat ? "Repeat On" : "Repeat: Off";
+    }
+
+    audioPlayer.addEventListener('ended', function(){
+        if(isRepeat){
+            audioPlayer.currentTime = 0;
+            audioPlayer.play();
+        }else{
+            nextSong();
+        }
+    });
+    </script>
+
+
+
+
+</body>
+</html>
